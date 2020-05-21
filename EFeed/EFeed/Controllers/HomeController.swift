@@ -6,4 +6,20 @@
 //  Copyright © 2020 Francois Rai. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class HomeController: UITableViewController {
+    private var articles: [Article]?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()        
+        ArticlesManagerService().fetchArticles { (articles) in
+            self.articles = articles
+            for article in articles {
+                print(article.title)
+                print(article.getPublishDate())
+                print("***")
+            }
+        }
+    }
+}

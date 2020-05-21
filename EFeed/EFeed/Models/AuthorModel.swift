@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct Author: Decodable {
+    let url, name: String?
+}
