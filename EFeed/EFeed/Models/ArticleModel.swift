@@ -22,11 +22,11 @@ class Article: Decodable {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        if let date = formatter.date(from: self.date_published) {
+        if let date = formatter.date(from: date_published) {
             formatter.dateFormat = "MM-dd-yyyy"
             return formatter.string(from: date)
         }
         
-        return self.date_published
+        return date_published
     }
 }
