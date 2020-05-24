@@ -29,4 +29,16 @@ class Article: Decodable {
         
         return date_published
     }
+    
+    func getReadableContent() -> NSAttributedString {
+        let htmlData = NSString(string: content_html).data(using: String.Encoding.unicode.rawValue)
+        
+        let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
+        
+        let attributedString = try! NSAttributedString(data: htmlData!,
+        options: options,
+        documentAttributes: nil)
+        
+        return attributedString
+    }
 }

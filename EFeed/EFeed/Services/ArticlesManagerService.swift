@@ -18,7 +18,6 @@ final class ArticlesManagerService {
                     return
                 }
                 
-                // if data exist
                 if let data = data,
                     let feed = try? JSONDecoder().decode(Feed.self, from: data) {
                     completionHandler(feed.items, nil)
