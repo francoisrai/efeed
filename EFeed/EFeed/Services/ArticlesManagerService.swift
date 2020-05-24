@@ -1,18 +1,5 @@
 import Foundation
 
-
-// Client
-// Server -> status code / no data
-// Serialization -> Decodable
-
-
-//enum ArticlesManagerServiceError {
-//    case badStatusCode
-//    case notHttpResponse
-//    case invalidUrl
-//    ...
-//}
-
 final class ArticlesManagerService {
     private let apiUri = "https://daringfireball.net/feeds/json"
     
@@ -20,7 +7,6 @@ final class ArticlesManagerService {
         if let url = URL(string: self.apiUri) {
             // Request the API
             URLSession.shared.dataTask(with: url) { data, response, error in
-                // if error print a message
                 if let error = error {
                     print("Error while getting data : \(error)")
                     completionHandler([], error)
